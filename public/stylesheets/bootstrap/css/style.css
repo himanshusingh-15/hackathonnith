@@ -1,0 +1,30 @@
+body {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#InputName,#InputRollNo,#InputPhoneNo {
+	width: 20%;
+}
+
+#InputEmailId {
+	width: 30%;
+}
+
+#InputLanguageInterested,#InputProjectIdea,#InputSuggestions {
+	width: 50%;
+}
+
+.alert {
+	padding: 10px;
+}
+
+h2 {
+	text-align: center;
+}
