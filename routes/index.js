@@ -13,15 +13,14 @@ router.post('/', function(req, res, next) {
 	var suggestions = req.body.suggestions;
 
 	pg.defaults.ssl = true;
-	pg.connect(process.env.DATABASE_URL, function(err, client) {
-		if(err)
-			throw err;
-		console.log('Connected to postgres! Getting schemas...');
-
-		client
-		.query('SELECT table_schema,entry FROM information_schema.tables;')
-		.on('row', function(row) {
-			console.log(JSON.stringify(row));
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+		client.query('SELECT * FROM entry', function(err, result) {
+			done();
+			if (err)
+				{ console.error(err); response.send("Error " + err); }
+			else {
+				console.log(result.rows);
+			}
 		});
 	});
 
