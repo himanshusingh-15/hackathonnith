@@ -14,14 +14,12 @@ router.post('/', function(req, res, next) {
 
 	pg.defaults.ssl = true;
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-		client.query('SELECT * FROM entry', function(err, result) {
+		if(err) {
 			done();
-			if (err)
-				{ console.error(err); response.send("Error " + err); }
-			else {
-				console.log(result.rows);
-			}
-		});
+			console.log(err);
+		}
+		console.log("Connected to postgres sql ...")
+		client.query('INSERT INTO entry(rollno,name,emailid,phoneno,language,idea,suggestions) VALUES($1,$2,$3,$4,$5,$6,$7,', [rollno,name,emailid,phoneno,languageinterested,projectidea,suggestions]);
 	});
 
 	res.render('index', { title: 'Express' });
