@@ -19,10 +19,10 @@ router.post('/', function(req, res, next) {
 			console.log(err);
 		}
 		console.log("Connected to postgres sql ...")
-		client.query('INSERT INTO entry(rollno,name,emailid,phoneno,language,idea,suggestions) VALUES($1,$2,$3,$4,$5,$6,$7', [rollno,name,emailid,phoneno,languageinterested,projectidea,suggestions]);
+		client.query('INSERT INTO entry(rollno,name,emailid,phoneno,language,idea,suggestions) VALUES($1,$2,$3,$4,$5,$6,$7)', [rollno,name,emailid,phoneno,languageinterested,projectidea,suggestions]);
 	});
 
-	// res.render('index', { title: 'Express' });
+	 res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
