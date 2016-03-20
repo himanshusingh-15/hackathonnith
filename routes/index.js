@@ -34,7 +34,9 @@ router.post('/', function(req, res, next) {
 			client.query('INSERT INTO entry(rollno,name,emailid,phoneno,language,idea,suggestions) VALUES($1,$2,$3,$4,$5,$6,$7)', [rollno,name,emailid,phoneno,languageinterested,projectidea,suggestions]);
 		}
 });
+console.log(check);
 	if(check==true){
+
 		res.render('viola', { title: 'Exists!' });
 	}else{
 	 res.render('index', { title: 'NewEntry' });
