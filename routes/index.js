@@ -20,7 +20,7 @@ router.post('/', function(req, res, next) {
 			console.log(err);
 		}
 		console.log("Connected to postgres sql ...")
-		client.query('SELECT email FROM entry where email=$1',[emailid],function(err,result){
+		client.query('SELECT emailid FROM entry where emailid=$1',[emailid],function(err,result){
 			if(err) {
       return console.error('error running query', err);
     	}
