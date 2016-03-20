@@ -11,6 +11,7 @@ router.post('/', function(req, res, next) {
 	var languageinterested = req.body.languageinterested;
 	var projectidea = req.body.projectidea;
 	var suggestions = req.body.suggestions;
+	var check = false;
 
 	pg.defaults.ssl = true;
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -19,10 +20,23 @@ router.post('/', function(req, res, next) {
 			console.log(err);
 		}
 		console.log("Connected to postgres sql ...")
-		client.query('INSERT INTO entry(rollno,name,emailid,phoneno,language,idea,suggestions) VALUES($1,$2,$3,$4,$5,$6,$7)', [rollno,name,emailid,phoneno,languageinterested,projectidea,suggestions]);
-	});
-
+		client.query('SELECT email FROM entry where email=$1',[emailid],function(err,result){
+			if(err) {
+      return console.error('error running query', err);
+    	}
+			if(result.row[0].email){
+				check=true;
+			}
+		});
+		if(!check){
+			client.query('INSERT INTO entry(rollno,name,emailid,phoneno,language,idea,suggestions) VALUES($1,$2,$3,$4,$5,$6,$7)', [rollno,name,emailid,phoneno,languageinterested,projectidea,suggestions]);
+		}
+});
+	if(check){
+		res.render('voila', { title: 'Exists!' });
+	}else{
 	 res.render('index', { title: 'NewEntry' });
+ }
 });
 
 module.exports = router;
