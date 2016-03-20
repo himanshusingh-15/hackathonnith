@@ -29,17 +29,13 @@ router.post('/', function(req, res, next) {
 			var email = result.rows[0].emailid;
 			if(email){
 				check=true;
+				res.render('viola', { title: 'Exists!' });
 			}else{
 				client.query('INSERT INTO entry(rollno,name,emailid,phoneno,language,idea,suggestions) VALUES($1,$2,$3,$4,$5,$6,$7)', [rollno,name,emailid,phoneno,languageinterested,projectidea,suggestions]);
+				res.render('index', { title: 'NewEntry' });
 			}
 		});
-});
-  console.log(check);
-	if(check==true){
-		res.render('viola', { title: 'Exists!' });
-	}else{
-	 res.render('index', { title: 'NewEntry' });
- }
+	});
 });
 
 module.exports = router;
