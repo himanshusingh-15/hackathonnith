@@ -24,7 +24,7 @@ router.post('/', function(req, res, next) {
 			if(err) {
       return console.error('error running query', err);
     	}
-			if(result.row[0].email){
+			if(result.rows[0].email){
 				check=true;
 			}
 		});
