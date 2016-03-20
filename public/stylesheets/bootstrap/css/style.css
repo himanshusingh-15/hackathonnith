@@ -10,15 +10,15 @@ a {
 }
 
 #InputName,#InputRollNo,#InputPhoneNo {
-	width: 20%;
+	width: 40%;
 }
 
 #InputEmailId {
-	width: 30%;
+	width: 50%;
 }
 
 #InputLanguageInterested,#InputProjectIdea,#InputSuggestions {
-	width: 50%;
+	width: 80%;
 }
 
 .alert {

@@ -13,42 +13,53 @@
 
 </head>
 <body>
-
-	<div class="alert alert-warning" role="alert">
-		<h2>Enter your details For Hackathon Entry!</h2>
+	<!-- <div class="container-fluid"> -->
+	<div class="row">
+		<div class="alert alert-warning" role="alert">
+			<h2>Enter your details For Hackathon Entry!</h2>
+		</div>
 	</div>
-	<form action="/newentry" method="POST">
-		<div class="form-group">
-			<label for="InputName">Name</label>
-			<input type="text" name="name" class="form-control" id="InputName" placeholder="Enter your name">
-		</div>
-		<div class="form-group">
-			<label for="InputRollNO">Roll No.</label>
-			<input type="text" name="rollno" class="form-control" id="InputRollNO" placeholder="Enter your Roll no">
-		</div>
-		<div class="form-group">
-			<label for="InputEmailId">Email Id</label>
-			<input type="email" name="emailid" class="form-control" id="InputEmailId" placeholder="Enter your Email Id">
-		</div>
-		<div class="form-group">
-			<label for="InputPhoneNo">Phone No</label>
-			<input type="text" name="phoneno" class="form-control" id="InputPhoneNo" placeholder="Enter your Phone No">
-		</div>
-		<div class="form-group">
-			<label for="InputLanguageInterested">Language Interested</label>
-			<input type="text" name="languageinterested" class="form-control" id="InputLanguageInterested" placeholder="Enter your Language Interested" aria-describedby="descriptionBlock">
-			<span id="descriptionBlock" class="help-block">Multiple entries can be done such as javascript,angular,embedded,nodejs,php,android,etc</span>
-		</div>
-		<div class="form-group">
-			<label for="InputProjectIdea">Project Idea</label>
-			<textarea rows="3" name="projectidea" class="form-control" id="InputProjectIdea" placeholder="Enter your Project Idea"></textarea>
-		</div>
-		<div class="form-group">
-			<label for="InputSuggestions">Suggestions</label>
-			<textarea rows="3" name="suggestions" class="form-control" id="InputSuggestions" placeholder="Any Suggestions"></textarea>
-		</div>
+	<div class="row">
+		<div class="col-md-6">
+			<form action="/newentry" method="POST">
+				<div class="form-group">
+					<label for="InputName">Name</label>
+					<input type="text" name="name" class="form-control" id="InputName" placeholder="Enter your name">
+				</div>
+				<div class="form-group">
+					<label for="InputRollNO">Roll No.</label>
+					<input type="text" name="rollno" class="form-control" id="InputRollNO" placeholder="Enter your Roll no">
+				</div>
+				<div class="form-group">
+					<label for="InputEmailId">Email Id</label>
+					<input type="email" name="emailid" class="form-control" id="InputEmailId" placeholder="Enter your Email Id">
+				</div>
+				<div class="form-group">
+					<label for="InputPhoneNo">Phone No</label>
+					<input type="text" name="phoneno" class="form-control" id="InputPhoneNo" placeholder="Enter your Phone No">
+				</div>
+				<div class="form-group">
+					<label for="InputLanguageInterested">Language Interested</label>
+					<input type="text" name="languageinterested" class="form-control" id="InputLanguageInterested" placeholder="Enter your Language Interested" aria-describedby="descriptionBlock">
+					<span id="descriptionBlock" class="help-block">Multiple entries can be done such as javascript,angular,embedded,nodejs,php,android,etc</span>
+				</div>
+				<div class="form-group">
+					<label for="InputProjectIdea">Project Idea</label>
+					<textarea rows="3" name="projectidea" class="form-control" id="InputProjectIdea" placeholder="Enter your Project Idea"></textarea>
+				</div>
+				<div class="form-group">
+					<label for="InputSuggestions">Suggestions</label>
+					<textarea rows="3" name="suggestions" class="form-control" id="InputSuggestions" placeholder="Any Suggestions"></textarea>
+				</div>
 
-		<button type="submit" class="btn btn-success">Submit</button>
-	</form>
+				<button type="submit" class="btn btn-success">Submit</button>
+			</form>
+		</div>
+		<div class="col-md-6">
+			<img src="images/hackathon.jpg" class="img-responsive">
+			<span id="note" class="help-block text-center">Linux should be installed in all participant systems.</span>
+		</div>
+	</div>
+	<!-- </div> -->
 </body>
 </html>
