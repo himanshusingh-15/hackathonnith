@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var pg = require('pg');
+var check = false;
 
 /* POST entry page. */
 router.post('/', function(req, res, next) {
@@ -11,7 +12,7 @@ router.post('/', function(req, res, next) {
 	var languageinterested = req.body.languageinterested;
 	var projectidea = req.body.projectidea;
 	var suggestions = req.body.suggestions;
-	var check = false;
+
 
 	pg.defaults.ssl = true;
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -30,14 +31,13 @@ router.post('/', function(req, res, next) {
 				check=true;
 			}
 		});
-		console.log(check);
+		console.log("hey"+check);
 		if(check!=true){
 			client.query('INSERT INTO entry(rollno,name,emailid,phoneno,language,idea,suggestions) VALUES($1,$2,$3,$4,$5,$6,$7)', [rollno,name,emailid,phoneno,languageinterested,projectidea,suggestions]);
 		}
 });
-console.log(check);
+  console.log(check);
 	if(check==true){
-
 		res.render('viola', { title: 'Exists!' });
 	}else{
 	 res.render('index', { title: 'NewEntry' });
