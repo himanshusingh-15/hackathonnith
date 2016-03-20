@@ -25,7 +25,8 @@ router.post('/', function(req, res, next) {
       return console.error('error running query', err);
     	}
 			console.log(result.rows[0].emailid);
-			if(result.rows[0].emailid!=null){
+			var email = result.rows[0].emailid;
+			if(email!=null){
 				check=true;
 			}
 		});
@@ -33,7 +34,7 @@ router.post('/', function(req, res, next) {
 			client.query('INSERT INTO entry(rollno,name,emailid,phoneno,language,idea,suggestions) VALUES($1,$2,$3,$4,$5,$6,$7)', [rollno,name,emailid,phoneno,languageinterested,projectidea,suggestions]);
 		}
 });
-	if(check){
+	if(check==true){
 		res.render('voila', { title: 'Exists!' });
 	}else{
 	 res.render('index', { title: 'NewEntry' });
