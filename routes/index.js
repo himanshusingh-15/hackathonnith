@@ -25,16 +25,14 @@ router.post('/', function(req, res, next) {
 			if(err) {
       return console.error('error running query', err);
     	}
-			console.log(result.rows[0].emailid);
+			//console.log(result.rows[0].emailid);
 			var email = result.rows[0].emailid;
 			if(email){
 				check=true;
+			}else{
+				client.query('INSERT INTO entry(rollno,name,emailid,phoneno,language,idea,suggestions) VALUES($1,$2,$3,$4,$5,$6,$7)', [rollno,name,emailid,phoneno,languageinterested,projectidea,suggestions]);
 			}
 		});
-		console.log("hey"+check);
-		if(check!=true){
-			client.query('INSERT INTO entry(rollno,name,emailid,phoneno,language,idea,suggestions) VALUES($1,$2,$3,$4,$5,$6,$7)', [rollno,name,emailid,phoneno,languageinterested,projectidea,suggestions]);
-		}
 });
   console.log(check);
 	if(check==true){
