@@ -15,12 +15,14 @@ router.post('/', function(req, res, next) {
 	var projectidea = req.body.projectidea;
 	var suggestions = req.body.suggestions;
 
+	console.log(name);
+
 
 	pg.defaults.ssl = true;
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		if(err) {
-			done();
 			console.log(err);
+			done();
 			res.sendFile(path.join(__dirname, '../views/error.html'));
 		}
 		else {
