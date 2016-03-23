@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  div.alert.alert-warning
+    h2 List of registered students
+  table.table
+    thead
+      tr
+        th Roll No.
+        th Name
+        th Email Id
+        th Phone No.
+        th Language
+        th Idea
+        th Suggestions
+    tbody
+      each row,index in data
+        if index%2 == 0
+          tr.active
+            td= row.rollno
+            td= row.name
+            td= row.emailid
+            td= row.phoneno
+            td= row.language
+            td= row.idea
+            td= row.suggestions
+        else
+          tr.info
+            td= row.rollno
+            td= row.name
+            td= row.emailid
+            td= row.phoneno
+            td= row.language
+            td= row.idea
+            td= row.suggestions
